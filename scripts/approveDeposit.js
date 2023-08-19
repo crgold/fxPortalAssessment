@@ -15,19 +15,20 @@ const walletAddress = "0x7B8B1d23a5BE13aE858e62c2ef5f9263665b89aD"; // place you
 
 async function main() {
 
-    const tokenContract = await hre.ethers.getContractAt(nftABI, nftAddress);
+    const nftContract = await hre.ethers.getContractAt(nftABI, nftAddress);
     const fxContract = await hre.ethers.getContractAt(fxRootContractABI, fxERC20RootAddress);
 
-    const approveTx = await tokenContract.approve(fxERC20RootAddress, 500);
+    const approveTx = await nftContract.setApprovalForAll(fxERC20RootAddress, true);
     await approveTx.wait();
 
     console.log('Approval confirmed');
 
+    for (let i = 0; i < 5; i++) {
+      const depositTx = await fxContract.deposit(nftAddress, walletAddress, i, "0x6556");
+      await depositTx.wait();
+    }
 
-    const depositTx = await fxContract.deposit(nftAddress, walletAddress, 500, "0x6556");
-    await depositTx.wait();
-
-    console.log("Tokens deposited");
+    console.log("NFTs deposited");
   
   }
   
