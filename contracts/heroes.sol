@@ -6,7 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Heroes is ERC721A, Ownable {
 
-    string private baseURI = "https://gateway.pinata.cloud/ipfs/QmP4B7rmtnGFYZ4YVFTWLFK89TaEVsPXRx4Ns3eazSrDzd/";
+    string private baseURI = "https://gateway.pinata.cloud/ipfs/QmQhAEy1KWKYe2uJNhUABDQmPrQ1fUJHSm1RE2ZwQ1Jddo/";
 
     constructor() ERC721A("heroes", "HEROES") {}
 
