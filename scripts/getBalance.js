@@ -7,7 +7,7 @@
 const hre = require("hardhat");
 const nftContractJSON = require("../artifacts/contracts/heroes.sol/Heroes.json");
 
-const nftAddress = ""; // place your mumbai contract address here
+const nftAddress = "0xa143Bbcd74c8A1F4cE962841497f08950E72d0A4"; // place your mumbai contract address here
 const nftABI = nftContractJSON.abi;
 const walletAddress = "0x7B8B1d23a5BE13aE858e62c2ef5f9263665b89aD"; // place your public address for your wallet here
 
