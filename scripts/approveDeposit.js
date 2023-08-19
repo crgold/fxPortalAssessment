@@ -8,7 +8,7 @@ const hre = require("hardhat");
 const fxRootContractABI = require("../fxRootContractABI.json");
 const nftContractJSON = require("../artifacts/contracts/heroes.sol/Heroes.json");
 
-const nftAddress = "0x65B393B4A5F1542f5038Ba5164522303FD8E4e73"; // place your erc20 contract address here
+const nftAddress = "0x379c05853C1C054e5930c8879AaFc88Cbb7D4399"; // place your erc20 contract address here
 const nftABI = nftContractJSON.abi;
 const fxERC20RootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";
 const walletAddress = "0x7B8B1d23a5BE13aE858e62c2ef5f9263665b89aD"; // place your public address for your wallet here
