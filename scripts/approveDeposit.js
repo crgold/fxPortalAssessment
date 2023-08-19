@@ -6,16 +6,16 @@
 // global scope, and execute the script.
 const hre = require("hardhat");
 const fxRootContractABI = require("../fxRootContractABI.json");
-const tokenContractJSON = require("../artifacts/contracts/MetaToken.sol/MetaToken.json");
+const nftContractJSON = require("../artifacts/contracts/heroes.sol/Heroes.json");
 
-const tokenAddress = ""; // place your erc20 contract address here
-const tokenABI = tokenContractJSON.abi;
-const fxERC20RootAddress = "0x3658ccFDE5e9629b0805EB06AaCFc42416850961";
-const walletAddress = ""; // place your public address for your wallet here
+const nftAddress = "0x65B393B4A5F1542f5038Ba5164522303FD8E4e73"; // place your erc20 contract address here
+const nftABI = nftContractJSON.abi;
+const fxERC20RootAddress = "0xF9bc4a80464E48369303196645e876c8C7D972de";
+const walletAddress = "0x7B8B1d23a5BE13aE858e62c2ef5f9263665b89aD"; // place your public address for your wallet here
 
 async function main() {
 
-    const tokenContract = await hre.ethers.getContractAt(tokenABI, tokenAddress);
+    const tokenContract = await hre.ethers.getContractAt(nftABI, nftAddress);
     const fxContract = await hre.ethers.getContractAt(fxRootContractABI, fxERC20RootAddress);
 
     const approveTx = await tokenContract.approve(fxERC20RootAddress, 500);
@@ -24,7 +24,7 @@ async function main() {
     console.log('Approval confirmed');
 
 
-    const depositTx = await fxContract.deposit(tokenAddress, walletAddress, 500, "0x6556");
+    const depositTx = await fxContract.deposit(nftAddress, walletAddress, 500, "0x6556");
     await depositTx.wait();
 
     console.log("Tokens deposited");
